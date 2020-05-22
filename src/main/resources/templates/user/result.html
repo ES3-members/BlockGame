@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<h1 th:text="${title}">仮のタイトル</h1>
+<p>入力内容をご確認ください</p>
+<div th:object="${scoreForm}">
+	<p th:text="*{userName}"></p>
+	<p th:text="*{score}"></p>
+</div>
+</body>
+</html>

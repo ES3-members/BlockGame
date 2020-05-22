@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>Gamedev Canvas Workshop - lesson 10: finishing up</title>
+    <link rel="stylesheet" th:href="@{/css/BlockGame2.css}">
+    
+</head>
+<body>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script th:src="@{/js/BlockGame2.js}"></script>
+<div class="popup" id="js-popup">
+  <div class="popup-inner">
+    <p class="game" id="game">a</p>
+    <div class="retry-btn" id="js-retry-btn">retry</div>
+    <div class="home-btn" id="js-home-btn">home</div>
+  </div>
+  <div class="black-background" id="js-black-bg"></div>
+</div>
+<form method="post" action="#" th:action="@{/user/result}" th:object="${scoreForm}">
+	<input type="hidden" name="userName" th:value="*{userName}">
+	<input type="hidden" id="score" name="score">
+	<input type="submit" id="submit" style="display:none;">
+</form>
+
+</body>
+
+</html>
