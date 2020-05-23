@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
 </head>
 <body>
 <h1 th:text="${title}">title</h1>	
-<p th:text="${userName}"></p>
+おかえりなさい<br>
+<p th:text="${userForm.userName}"></p>
+<form method="post" action="#" th:action="@{/user/game}">
+	<input type="hidden" name="userName" th:value="${userForm.userName}">
+	<input type="submit" value="game start">
+</form>
 </body>
 </html>

@@ -36,27 +36,27 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
-// popup用
-function　popUp() {
-  var popup = document.getElementById('js-popup');
-  if(!popup) return;
-  popup.classList.add('is-show');
-
-  var blackBg = document.getElementById('js-black-bg');
-  var retryBtn = document.getElementById('js-retry-btn');
-  var homeBtn = document.getElementById('js-home-btn');  
-
-  function closePopUp(elem) {
-    if(!elem) return;
-    elem.addEventListener('click', function() {
-      popup.classList.remove('is-show');
-      document.location.reload();
-    })
-  }
-  closePopUp(blackBg);
-  closePopUp(retryBtn);
-  closePopUp(homeBtn);
-}
+//// popup用
+//function　popUp() {
+//  var popup = document.getElementById('js-popup');
+//  if(!popup) return;
+//  popup.classList.add('is-show');
+//
+//  var blackBg = document.getElementById('js-black-bg');
+//  var retryBtn = document.getElementById('js-retry-btn');
+//  var homeBtn = document.getElementById('js-home-btn');  
+//
+//  function closePopUp(elem) {
+//    if(!elem) return;
+//    elem.addEventListener('click', function() {
+//      popup.classList.remove('is-show');
+//      document.location.reload();
+//    })
+//  }
+//  closePopUp(blackBg);
+//  closePopUp(retryBtn);
+//  closePopUp(homeBtn);
+//}
 
 
 

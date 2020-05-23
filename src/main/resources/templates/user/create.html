@@ -17,6 +17,10 @@
 	<label for="password">password:</label>
 	<input id="password" name="password" type="password" th:value="*{password}"><br>
 	<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+	again password for confirm<br>
+	<label for="passwordConfirm">password:</label>
+	<input id="passwordConfirm" name="passwordConfirm" type="password" th:value="*{passwordConfirm}"><br>
+	<div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
 	<input type="submit" value="create">
 </form>
 </body>

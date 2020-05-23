@@ -46,27 +46,35 @@ public class UserController {
 	}
 	
 	@PostMapping("/entrance")
-	public String entrance(@Validated UserForm userForm, 
-			BindingResult result, 
-			Model model,
-			ScoreForm scoreForm) {
+	public String entrance(@Validated UserForm userForm,
+			BindingResult result,
+			Model model,ScoreForm scoreForm) {
 		
 		// 入力された値が想定外の時
 		if(result.hasErrors()) {
-			model.addAttribute("title", "LogIn Page");
+			model.addAttribute("caution", "Please write");
 			return "user/logInForm";
 		}
 		
 		//入力されたアカウントが有る場合（データベースでアカウントを探索）コードはserviceに頼む
 		//入力されたアカウントがDBに存在すればtrue
 		if(userService.certificate(userForm.getUserName(), userForm.getPassword())) {
-			return "user/BlockGame2";
+			model.addAttribute("title", "Entrance Page");
+//			model.addAttribute("userName", userForm.getUserName());
+			return "user/entrance";
 		}
 		
 		//loginするアカウントが無い場合
 		model.addAttribute("title", "LogIn Page");
 		model.addAttribute("caution", "The account does not exist");
 		 return "user/logInForm";
+	}
+	
+	// start game 
+	@PostMapping("/game")
+	public String game(ScoreForm scoreForm, Model model) {
+		model.addAttribute("title", "Game Start");
+		return "user/game";
 	}
 	
 	// finish game
@@ -101,10 +109,15 @@ public class UserController {
 			model.addAttribute("caution", "The userName is already in use");
 			 return "user/create";
 		}
-		
-		int passwordSize = userForm.getPassword().length();
 	
+		// パスワードと確認用パスワードが一致しない場合
+		if(!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
+			model.addAttribute("caution", "Password does not match");
+			return "user/create";
+		}
+		
 		// 入力されたアカウントが正常の場合
+		int passwordSize = userForm.getPassword().length();
 		model.addAttribute("secretpass", "*".repeat(passwordSize));
 		model.addAttribute("title", "Confirm Account");
 		return "user/confirm";

@@ -1,7 +1,6 @@
 package com.example.demo.app.user;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserForm {
@@ -9,15 +8,26 @@ public class UserForm {
 	@Size(min = 1, max = 20, message="Please input 20 characters or less")
 	private String userName;
 	@NotNull()
-//	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!-/:-@[-`{-~])[!-~]{8,48}$")
 	private String password;
 	
+	private String passwordConfirm;
+	
+	
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
+
 	public UserForm() {}
 
-	public UserForm(String userName, String password) {
+	public UserForm(String userName, String password, String passwordConfirm) {
 		super();
 		this.userName = userName;
 		this.password = password;
+		this.passwordConfirm = passwordConfirm;
 	}
 
 	public String getUserName() {

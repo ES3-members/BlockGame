@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<h1 th:text="${title}">仮のタイトル</h1>
+<p>結果発表</p>
+<p th:text="${scoreForm.userName}"></p>
+得点：<a th:text="${scoreForm.score}"></a>
+</body>
+</html>
