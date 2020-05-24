@@ -3,18 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}">title</h1>
+<h1 class="text-white" th:text="${title}">title</h1>
 <div th:if="${param.complete}" >
 	更新が完了しました。
 </div>
 <h2 th:text="${complete}"></h2>	
+<!-- 
 <form method="post" action="#" th:action="@{/user/logInForm}">
-	<input type="submit" class="btn btn-primary" value="LogIn">
+	<input type="submit" class="btn btn-secondary" value="LogIn">
 </form>
 <form method="post" action="#" th:action="@{/user/create}">
-	<input type="submit" value="Create Account">
+	<input type="submit" class="btn btn-secondary" value="Create Account">
 </form>
+ -->
+<div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 20rem;">
+  <h1 class="card-header text-white">User Menu</h1>
+  <div class="card-body">
+    <form method="post" action="#" th:action="@{/user/logInForm}">
+		<input type="submit" class="btn btn-secondary" value="LogIn">
+	</form>
+	<form method="post" action="#" th:action="@{/user/create}">
+		<input type="submit" class="btn btn-secondary" value="Create Account">
+	</form>
+  </div>
+</div>
+
+
+
 </body>
 </html>

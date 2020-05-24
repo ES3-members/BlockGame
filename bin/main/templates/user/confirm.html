@@ -4,25 +4,32 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}">仮のタイトル</h1>
-<p>入力内容をご確認ください</p>
-<div th:object="${userForm}">
-<label for="userName">userName:</label>
-<p th:text="*{userName}"></p>
-<label for="password">password:</label>
-<p th:text="${secretpass}"></p>
-<form method="post" action="#" th:action="@{/user/create}">
-	<input type="hidden" name="userName" th:value="*{userName}">
-	<input type="hidden" name="password" th:value="*{password}">
-	<input type="submit" value="back">
-</form>
-<form method="post" action="#" th:action="@{/user/complete}">
-	<input type="hidden" name="userName" th:value="*{userName}">
-	<input type="hidden" name="password" th:value="*{password}">
-	<input type="submit" value="Complete">
-</form>
+<h1 class="text-white" th:text="${title}">仮のタイトル</h1>
+
+<div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 25rem;">
+  <h1 class="card-header text-white">Register Form</h1>
+  <div class="card-body">
+	<p class="text-white">Confirm your information</p>
+	<div th:object="${userForm}">
+	<label class="text-white" for="userName">userName:</label>
+	<p class="text-white" th:text="*{userName}"></p>
+	<label class="text-white" for="password">password:</label>
+	<p class="text-white" th:text="${secretpass}"></p>
+	<form method="post" action="#" th:action="@{/user/create}">
+		<input type="hidden" name="userName" th:value="*{userName}">
+		<input type="hidden" name="password" th:value="*{password}">
+		<input class="btn" type="submit" value="back">
+	</form>
+	<form method="post" action="#" th:action="@{/user/complete}">
+		<input type="hidden" name="userName" th:value="*{userName}">
+		<input type="hidden" name="password" th:value="*{password}">
+		<input class="btn" type="submit" value="Complete">
+	</form>
+	</div>
+  </div>
 </div>
 </body>
 </html>

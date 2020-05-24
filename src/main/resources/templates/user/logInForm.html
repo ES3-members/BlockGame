@@ -3,24 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}">仮のタイトル</h1>
-<div th:if="${param.caution}" >
-	更新が完了しました。
+<h1 class="text-white" th:text="${title}">仮のタイトル</h1>
+
+
+
+<div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 25rem;">
+  <h1 class="card-header text-white">Register Form</h1>
+  <div class="card-body">
+ 	<h3 class="text-red" th:text="${caution}"></h3>
+	<form method="post" action="#" th:action="@{/user/entrance}" th:object="${userForm}">
+		<label class="text-white" for="userName">userName:</label>
+		<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
+		<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+		<label class="text-white" for="password">password:</label>
+		<input id="password" name="password" type="password" th:value="*{password}"><br>
+		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+		<input class="btn" type="submit" value="LogIn">
+	</form>
+	<form method="post" action="#" th:action="@{/user/index}">
+		<input class="btn" type="submit" value="back">
+	</form>
+  </div>
 </div>
-<h2 th:text="${caution}"></h2>
-<form method="post" action="#" th:action="@{/user/entrance}" th:object="${userForm}">
-	<label for="userName">userName:</label>
-	<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
-	<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
-	<label for="password">password:</label>
-	<input id="password" name="password" type="password" th:value="*{password}"><br>
-	<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-	<input type="submit" value="LogIn">
-</form>
-<form method="post" action="#" th:action="@{/user/index}">
-	<input type="submit" value="back">
-</form>
 </body>
 </html>

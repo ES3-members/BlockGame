@@ -9,6 +9,14 @@ body{
     
 }
 
+.text-white{
+	color: white;
+}
+
+.text-red{
+	color: red;
+}
+
 .login-box{
     width: 280px;
     position: absolute;
@@ -61,4 +69,13 @@ body{
     font-size: 18px;
     cursor: pointer;
     margin: 12px 0;
+}
+
+.card{
+	position: absolute;
+	width: 200px;
+  	height: 200px;
+  	left: 1000px;
+  	top: 300px;
+	width: 100%;
 }

@@ -3,25 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}">仮のタイトル</h1>
-<div th:if="${param.caution}" >
-	更新が完了しました。
+<h1 class="title text-white" th:text="${title}">仮のタイトル</h1>
+
+<div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 25rem;">
+  <h1 class="card-header text-white">Register Form</h1>
+  <div class="card-body">
+	<form method="post" action="#" th:action="@{/user/confirm}" th:object="${userForm}">
+		<h3 class="text-red" th:text="${caution}"></h3>	
+		<label class="formLabel" for="userName">userName:</label>
+		<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
+		<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+		<label class="formLabel" for="password">password:</label>
+		<input id="password" name="password" type="password" th:value="*{password}"><br>
+		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+		<p class="message text-white" >Please input your password again for confirmation</p>
+		<label class="formLabel" for="passwordConfirm">password:</label>
+		<input id="passwordConfirm" name="passwordConfirm" type="password" th:value="*{passwordConfirm}"><br>
+		<div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
+		<input class="btn" type="submit" value="create">
+	</form>
+  </div>
 </div>
-<h2 th:text="${caution}"></h2>	
-<form method="post" action="#" th:action="@{/user/confirm}" th:object="${userForm}">
-	<label for="userName">userName:</label>
-	<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
-	<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
-	<label for="password">password:</label>
-	<input id="password" name="password" type="password" th:value="*{password}"><br>
-	<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-	again password for confirm<br>
-	<label for="passwordConfirm">password:</label>
-	<input id="passwordConfirm" name="passwordConfirm" type="password" th:value="*{passwordConfirm}"><br>
-	<div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
-	<input type="submit" value="create">
-</form>
+	
 </body>
 </html>
