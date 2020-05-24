@@ -2,12 +2,12 @@ package com.example.demo.entity;
 
 public class UserScore {
 	private String userName;
-	private int Score;
+	private int score;
 	public UserScore() {}
-	public UserScore(String userName, int Score) {
+	public UserScore(String userName, int score) {
 		super();
 		this.userName = userName;
-		this.Score = Score;
+		this.score = score;
 	}
 	public String getUserName() {
 		return userName;
@@ -16,10 +16,10 @@ public class UserScore {
 		this.userName = userName;
 	}
 	public int getScore() {
-		return Score;
+		return score;
 	}
 	public void setScore(int Score) {
-		this.Score = Score;
+		this.score = score;
 	}
 	
 	

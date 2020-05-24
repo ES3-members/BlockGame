@@ -9,5 +9,9 @@
 <p>結果発表</p>
 <p th:text="${scoreForm.userName}"></p>
 得点：<a th:text="${scoreForm.score}"></a>
+
+<form method="post" action="#" th:action="@{/user/entrance}">
+	<input type="submit" value="home">
+</form>
 </body>
 </html>
