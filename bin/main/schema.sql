@@ -8,5 +8,5 @@ CREATE TABLE user
 CREATE TABLE userscore
 (
    userName VARCHAR(100) NOT NULL,
-   score VARCHAR(100) NOT NULL,
+   score VARCHAR(100) NOT NULL
 );
