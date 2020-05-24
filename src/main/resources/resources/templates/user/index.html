@@ -6,10 +6,7 @@
 </head>
 <body>
 <h1 th:text="${title}">title</h1>
-<div th:if="${param.complete}" >
-	更新が完了しました。
-</div>
-<h2 th:text="${complete}"></h2>	
+<h2 class="text-white" th:text="${complete}"></h2>	
 <form method="post" action="#" th:action="@{/user/logInForm}">
 	<input type="submit" value="LogIn">
 </form>

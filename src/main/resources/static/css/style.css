@@ -72,10 +72,10 @@ body{
 }
 
 .card{
-	position: absolute;
+	position: relative;
 	width: 200px;
   	height: 200px;
-  	left: 1000px;
-  	top: 300px;
+  	left: 650px;
+  	top: 200px;
 	width: 100%;
 }

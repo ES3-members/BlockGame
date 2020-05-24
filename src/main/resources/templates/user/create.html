@@ -13,14 +13,14 @@
   <div class="card-body">
 	<form method="post" action="#" th:action="@{/user/confirm}" th:object="${userForm}">
 		<h3 class="text-red" th:text="${caution}"></h3>	
-		<label class="formLabel" for="userName">userName:</label>
+		<label class="text-white" for="userName">userName:</label>
 		<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
 		<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
-		<label class="formLabel" for="password">password:</label>
+		<label class="text-white" for="password">password:</label>
 		<input id="password" name="password" type="password" th:value="*{password}"><br>
 		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 		<p class="message text-white" >Please input your password again for confirmation</p>
-		<label class="formLabel" for="passwordConfirm">password:</label>
+		<label class="text-white" for="passwordConfirm">password:</label>
 		<input id="passwordConfirm" name="passwordConfirm" type="password" th:value="*{passwordConfirm}"><br>
 		<div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
 		<input class="btn" type="submit" value="create">
