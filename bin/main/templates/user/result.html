@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${title}">仮のタイトル</h1>
-<p>入力内容をご確認ください</p>
+<h1 class="text-white" th:text="${title}">仮のタイトル</h1>
+<p class="text-white">入力内容をご確認ください</p>
 <div th:object="${scoreForm}">
-	<p th:text="*{userName}"></p>
-	<p th:text="*{score}"></p>
+	<p class="text-white" th:text="*{userName}"></p>
+	<p class="text-white" th:text="*{score}"></p>
 </div>
 </body>
 </html>
