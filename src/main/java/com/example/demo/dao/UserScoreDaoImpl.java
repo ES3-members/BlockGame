@@ -41,5 +41,24 @@ public class UserScoreDaoImpl implements UserScoreDao {
 		return list;
 	}
 	
+	@Override
+	public boolean userExist(String userName) {
+		// ユーザー名がUserテーブル（データベース）に存在するか確認
+		// 存在すればTrue，存在しなければFalseを返す
+		String sql = "SELECT userName FROM userscore";
+		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
+		List<String> list = new ArrayList<String>();
+		for(Map<String, Object> result : resultList) {
+			String user = (String)result.get("userName");
+			list.add(user);
+		}
+		return list.contains(userName);
+	}
+	
+	@Override
+	public int updateUserScore(UserScore userscore) {
+		return jdbcTemplate.update("UPDATE userscore SET userName = ?, score = ? WHERE userName = ?",
+				userscore.getUserName(), userscore.getScore(), userscore.getUserName());	
+	}
 
 }

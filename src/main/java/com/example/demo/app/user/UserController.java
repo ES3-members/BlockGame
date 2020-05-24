@@ -65,9 +65,7 @@ public class UserController {
 		//入力されたアカウントが有る場合（データベースでアカウントを探索）コードはserviceに頼む
 		//入力されたアカウントがDBに存在すればtrue
 		if(userService.certificate(userForm.getUserName(), userForm.getPassword())) {
-			List<UserScore> list = userscoreService.getAll();
 			model.addAttribute("title", "Entrance Page");
-			model.addAttribute("userscoreList", list);
 //			model.addAttribute("userName", userForm.getUserName());
 			return "user/entrance";
 		}
@@ -88,13 +86,24 @@ public class UserController {
 	// finish game
 	@PostMapping("/result")
 	public String result(ScoreForm scoreForm, Model model) {
-		UserScore userscore = new UserScore();
-		userscore.setUserName(scoreForm.getUserName());
-		userscore.setScore(scoreForm.getScore());
-		userscoreService.save(userscore);
 		
-		
+		if(userscoreService.userExist(scoreForm.getUserName())) {
+			UserScore userscore = new UserScore();
+			userscore.setUserName(scoreForm.getUserName());
+			userscore.setScore(scoreForm.getScore());
+			userscoreService.update(userscore);
+		}else {
+			UserScore userscore = new UserScore();
+			userscore.setUserName(scoreForm.getUserName());
+			userscore.setScore(scoreForm.getScore());
+			userscoreService.save(userscore);
+
+		}
+			
+		List<UserScore> list = userscoreService.getAll();
+		model.addAttribute("userscoreList", list);
 		model.addAttribute("title", "Result Page");
+		
 //		model.addAttribute("userName", scoreForm.getUserName());
 //		model.addAttribute("score", scoreForm.getScore());
 		return "user/result";

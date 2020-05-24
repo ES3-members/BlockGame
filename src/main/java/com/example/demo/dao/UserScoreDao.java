@@ -10,5 +10,9 @@ public interface UserScoreDao {
 	
 	List<UserScore> getAll();
 	
+	boolean userExist(String userName);
+	
+	int updateUserScore(UserScore userscore);
+	
 	
 }

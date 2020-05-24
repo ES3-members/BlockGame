@@ -27,6 +27,17 @@ public class UserScoreServiceImpl implements UserScoreService {
 	public List<UserScore> getAll() {
 		return dao.getAll();
 	}
+	
+	@Override
+	public boolean userExist(String userName) {
+		return dao.userExist(userName);
+	}
+	
+	@Override
+	public void update(UserScore userscore) {
+		dao.updateUserScore(userscore);
+		
+	}
 
 
 }

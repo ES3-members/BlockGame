@@ -8,5 +8,9 @@ public interface UserScoreService {
 	void save(UserScore userscore);
 	
 	List<UserScore> getAll();
+
+	boolean userExist(String userName);
+	
+	void update(UserScore userscore);
 	
 }

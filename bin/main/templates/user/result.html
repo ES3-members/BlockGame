@@ -6,10 +6,18 @@
 </head>
 <body>
 <h1 th:text="${title}">仮のタイトル</h1>
-<p>入力内容をご確認ください</p>
-<div th:object="${scoreForm}">
-	<p th:text="*{userName}"></p>
-	<p th:text="*{score}"></p>
-</div>
+<p>結果</p>
+<table>
+	<tr>
+		<th>userName</th><th>score</th>
+	</tr>
+	<tr th:each="userscore : ${userscoreList}">
+		<td th:text="${userscore.userName}">userName</td>
+		<td th:text="${userscore.score}">score</td>
+	</tr>
+</table>
+<form method="post" action="#" th:action="@{/user/index}">
+	<input type="submit" value="Home Page">
+</form>
 </body>
 </html>
