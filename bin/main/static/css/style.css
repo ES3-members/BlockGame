@@ -9,6 +9,15 @@ body{
     
 }
 
+.mybody{
+	margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+/*    background: url(bg.jpg) no-repeat;*/
+    background: #424242;
+    background-size: cover;
+}
+
 .text-white{
 	color: white;
 }
@@ -77,4 +86,10 @@ body{
   	height: 200px;
   	left: 40%;
 	width: 100%;
+}
+
+.mytable{
+	position: relative;
+	width: 80%;
+	left: 5%;
 }

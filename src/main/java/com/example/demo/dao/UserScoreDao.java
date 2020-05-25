@@ -2,6 +2,7 @@ package com.example.demo.dao;
 
 import java.util.List;
 
+import com.example.demo.app.user.Ranking;
 import com.example.demo.entity.UserScore;
 
 public interface UserScoreDao {
@@ -14,5 +15,6 @@ public interface UserScoreDao {
 	
 	int updateUserScore(UserScore userscore);
 	
+	List<Ranking> getRanking();
 	
 }

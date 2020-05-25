@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.app.user.Ranking;
 import com.example.demo.entity.UserScore;
 @Repository
 public class UserScoreDaoImpl implements UserScoreDao {
@@ -59,6 +60,24 @@ public class UserScoreDaoImpl implements UserScoreDao {
 	public int updateUserScore(UserScore userscore) {
 		return jdbcTemplate.update("UPDATE userscore SET userName = ?, score = ? WHERE userName = ?",
 				userscore.getUserName(), userscore.getScore(), userscore.getUserName());	
+	}
+
+	@Override
+	public List<Ranking> getRanking() {
+		// Get all record sorted by score
+		String sql = "SELECT * FROM userscore ORDER BY score DESC";
+		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
+		List<Ranking> list = new ArrayList<Ranking>();
+		int i = 1;
+		for(Map<String, Object> result : resultList) {
+			Ranking ranking = new Ranking();
+			ranking.setPlace(i);
+			ranking.setUserName((String)result.get("userName"));
+			ranking.setScore((int)result.get("score"));
+			list.add(ranking);
+			i+=1;
+		}
+		return list;
 	}
 
 }

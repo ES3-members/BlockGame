@@ -108,7 +108,8 @@ function collisionDetection(request) {
                                     break;
 
                                 default:
-                                    swal("tomisu!!");
+                                	document.getElementById("score").value = score;	//id="score"を持つhtmlタグにscoreの値を渡す                       
+                            		document.getElementById("submit").click();
 
                             }
                         });
