@@ -1,5 +1,6 @@
 package com.example.demo.app.user;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,5 +169,13 @@ public class UserController {
 		return "redirect:/user/index";
 	}
 	
+	@GetMapping("ranking")
+	public String ranking(Model model) {
+	// This is for test
+	// You can reuse this by replacing  "GetMapping" to "PostMapping" or something
+		List<Ranking> rank = userscoreService.getRanking();
+		model.addAttribute("ranking", rank);
+		return "user/ranking";
+	}
 	
 }

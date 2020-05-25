@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+<table class="text-white">
+	<tr>
+		<th>place</th><th>userName</th><th>score</th>
+	</tr>
+	<tr th:each="rank : ${ranking}">
+	<td th:text="${rank.place}"></td>
+		<td th:text="${rank.userName}"></td>
+		<td th:text="${rank.score}"></td>
+	</tr>
+</table>
+</body>
+</html>

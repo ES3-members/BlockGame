@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.app.user.Ranking;
 import com.example.demo.dao.UserScoreDao;
 import com.example.demo.entity.UserScore;
 
@@ -37,6 +38,11 @@ public class UserScoreServiceImpl implements UserScoreService {
 	public void update(UserScore userscore) {
 		dao.updateUserScore(userscore);
 		
+	}
+
+	@Override
+	public List<Ranking> getRanking() {
+		return dao.getRanking();
 	}
 
 

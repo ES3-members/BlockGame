@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import com.example.demo.app.user.Ranking;
 import com.example.demo.entity.UserScore;
 
 public interface UserScoreService {
@@ -13,4 +14,5 @@ public interface UserScoreService {
 	
 	void update(UserScore userscore);
 	
+	List<Ranking> getRanking();
 }
