@@ -4,3 +4,9 @@ CREATE TABLE user
    password VARCHAR(100) NOT NULL,
    PRIMARY KEY(userName)
 );
+
+CREATE TABLE userscore
+(
+   userName VARCHAR(100) NOT NULL,
+   score INT NOT NULL
+);
