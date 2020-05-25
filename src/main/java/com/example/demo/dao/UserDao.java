@@ -15,4 +15,5 @@ public interface UserDao {
 	boolean certificate(String userName, String password);
 	
 	String hashedPass(String password);
+	
 }

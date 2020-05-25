@@ -109,6 +109,13 @@ public class UserController {
 		return "user/result";
 	}
 	
+	
+	@PostMapping("/entrance2")
+	public String entrance2(ScoreForm scoreForm, Model model) {
+		model.addAttribute("title", "Entrance Page");
+		return "user/entrance2";
+	}
+	
 	@PostMapping("/create")
 	public String create(UserForm userForm, Model model) {
 		model.addAttribute("title", "Create Account");

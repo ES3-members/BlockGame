@@ -7,7 +7,7 @@ public class UserForm {
 	@NotNull()
 	@Size(min = 1, max = 20, message="Please input 20 characters or less")
 	private String userName;
-	@NotNull()
+
 	private String password;
 	
 	private String passwordConfirm;
