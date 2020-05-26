@@ -83,9 +83,16 @@ body{
 .card{
 	position: relative;
 	width: 200px;
-  	height: 200px;
+  	height: auto;
   	left: 40%;
-	width: 100%;
+	width: 100%;	
+}
+
+#developer{
+  text-decoration: none;
+  color: #bdb76b;
+  padding: 5px;
+	
 }
 
 .mytable{
