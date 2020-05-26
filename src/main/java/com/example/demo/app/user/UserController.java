@@ -86,7 +86,7 @@ public class UserController {
 	
 	// finish game
 	@PostMapping("/result")
-	public String result(ScoreForm scoreForm, Model model) {
+	public String result(ScoreForm scoreForm, UserForm userForm, Model model) {
 		
 		if(userscoreService.userExist(scoreForm.getUserName())) {
 			UserScore userscore = new UserScore();
@@ -111,10 +111,10 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("/entrance2")
-	public String entrance2(ScoreForm scoreForm, Model model) {
+	@PostMapping("/entranceFromInside")
+	public String entranceFromInside(UserForm userForm, Model model) {
 		model.addAttribute("title", "Entrance Page");
-		return "user/entrance2";
+		return "user/entrance";
 	}
 	
 	@PostMapping("/create")
@@ -176,8 +176,8 @@ public class UserController {
 		return "redirect:/user/index";
 	}
 	
-	@GetMapping("ranking")
-	public String ranking(Model model) {
+	@PostMapping("ranking")
+	public String ranking(UserForm userForm, Model model) {
 	// This is for test
 	// You can reuse this by replacing  "GetMapping" to "PostMapping" or something
 		List<Ranking> rank = userscoreService.getRanking();

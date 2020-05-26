@@ -29,5 +29,14 @@
 	  </tbody>
 	</table>
 	</div>
+	
+	<div class="goBackBtn">
+		<form method="post" action="#" th:action="@{/user/entranceFromInside}">
+			<input type="hidden" name="userName" th:value="${userForm.userName}">
+			<input  type="submit" value="Go back entrance">
+		</form>
+	</div>  
+
+	
 </body>
 </html>
