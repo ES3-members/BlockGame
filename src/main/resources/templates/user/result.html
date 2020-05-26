@@ -3,14 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 class="text-white" th:text="${title}">仮のタイトル</h1>
-<p class="text-white">入力内容をご確認ください</p>
-<div th:object="${scoreForm}">
-	<p class="text-white" th:text="*{userName}"></p>
-	<p class="text-white" th:text="*{score}"></p>
+<div th:replace="~{block/header::headerA}"></div>
+<h1 class="title text-white"  th:text="${title}">仮のタイトル</h1>
+
+<div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 20rem;">
+	<p class="text-white" >結果</p>
+	<table>
+		<tr>
+			<th class="text-white" >userName</th><th class="text-white" >score</th>
+		</tr>
+		<tr th:each="userscore : ${userscoreList}">
+			<td class="text-white"  th:text="${userscore.userName}">userName</td>
+			<td class="text-white"  th:text="${userscore.score}">score</td>
+		</tr>
+	</table>
+	<form method="post" action="#" th:action="@{/user/index}">
+		<input class="btn"  type="submit" value="Home Page">
+	</form>
 </div>
 </body>
 </html>

@@ -10,9 +10,9 @@ var paddleWidth = 75;
 var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 5;
-var brickColumnCount = 3;
-var brickWidth = 75;
+var brickRowCount = 6;
+var brickColumnCount = 4;
+var brickWidth = 62;
 var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
@@ -122,16 +122,20 @@ function collisionDetection(request) {
 
 
 function drawBall() {
-    ctx.beginPath();
+	ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#0095DD";
+    var ctx_color = ctx.createRadialGradient(x, y, 1, x, y, ballRadius);
+    ctx_color.addColorStop(0.0 , 'rgb(0, 0, 0)');
+    ctx_color.addColorStop(0.2 , 'rgb(10, 100, 10)');
+    ctx_color.addColorStop(1.0 , 'rgb(0, 250, 0)');
+    ctx.fillStyle = ctx_color;
     ctx.fill();
     ctx.closePath();
 }
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "green";
     ctx.fill();
     ctx.closePath();
 }
@@ -145,7 +149,11 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                var ctx_color = canvas.getContext('2d');
+                var ctx_color = ctx.createLinearGradient(brickX, brickY, brickX+brickWidth, brickY+brickHeight);
+                ctx_color.addColorStop(0.0, 'rgb(0, 0, 0)');
+                ctx_color.addColorStop(1.0, 'rgb(50, 255, 50)');
+                ctx.fillStyle = ctx_color;
                 ctx.fill();
                 ctx.closePath();
             }
@@ -154,12 +162,12 @@ function drawBricks() {
 }
 function drawScore() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "green";
     ctx.fillText("Score: "+score, 8, 20);
 }
 function drawLives() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "green";
     ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
