@@ -21,9 +21,12 @@
 			<td class="text-white"  th:text="${userscore.score}">score</td>
 		</tr>
 	</table>
-	<form method="post" action="#" th:action="@{/user/index}">
-		<input class="btn"  type="submit" value="Home Page">
+	<div class="goBackBtn">
+	<form method="post" action="#" th:action="@{/user/entranceFromInside}">
+		<input type="hidden" name="userName" th:value="*{userName}">
+		<input class="btn" type="submit" value="Go back entrance">
 	</form>
+	</div>
 </div>
 <div th:replace="~{block/footer::footerA}"></div>
 </body>
