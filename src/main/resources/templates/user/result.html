@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:replace="~{block/header::headerA}"></div>
 <h1 class="text-white" th:text="${title}">仮のタイトル</h1>
-<p class="text-white">入力内容をご確認ください</p>
+<p class="text-white">結果をご確認ください</p>
 <div th:object="${scoreForm}">
 	<p class="text-white" th:text="*{userName}"></p>
 	<p class="text-white" th:text="*{score}"></p>
+	
+<div class="goBackBtn">
+<form method="post" action="#" th:action="@{/user/entranceFromInside}">
+	<input type="hidden" name="userName" th:value="*{userName}">
+	<input class="btn" type="submit" value="Go back entrance">
+</form>
 </div>
+</div>
+<div th:replace="~{block/footer::footerA}"></div>
 </body>
 </html>

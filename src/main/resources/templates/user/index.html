@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+
+<div th:replace="~{block/header::headerA}"></div>
+
 <h1 class="text-white" th:text="${title}">title</h1>
 <h2 class="text-white" th:text="${complete}"></h2>	
 <!-- 
@@ -28,7 +32,7 @@
   </div>
 </div>
 
-
+<div th:replace="~{block/footer::footerA}"></div>
 
 </body>
 </html>

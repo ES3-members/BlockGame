@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:replace="~{block/header::headerA}"></div>
 <h1 class="text-white" th:text="${title}">title</h1>	
 <h2 id="welcome" class="text-white">おかえりなさい</h2>
 <div id="name" th:text="${userForm.userName}" style=display:none;></div>
@@ -19,9 +21,14 @@ document.getElementById("welcome").innerHTML =
   <div class="card-body">
 	<form method="post" action="#" th:action="@{/user/game}">
 		<input type="hidden" name="userName" th:value="${userForm.userName}">
-		<input class="btn" type="submit" value="game start">
+		<input class="btn" type="submit" value="Game start">
+	</form>
+	<form method="post" action="#" th:action="@{/user/ranking}">
+		<input type="hidden" name="userName" th:value="${userForm.userName}">
+		<input class="btn" type="submit" value="Show ranking">
 	</form>
   </div>
 </div>
+<div th:replace="~{block/footer::footerA}"></div>
 </body>
 </html>

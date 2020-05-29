@@ -68,14 +68,26 @@ public class UserScoreDaoImpl implements UserScoreDao {
 		String sql = "SELECT * FROM userscore ORDER BY score DESC";
 		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
 		List<Ranking> list = new ArrayList<Ranking>();
-		int i = 1;
+		int rank = 1;
+		int repeat = 0;
+		int previous = 0;
 		for(Map<String, Object> result : resultList) {
 			Ranking ranking = new Ranking();
-			ranking.setPlace(i);
+			int score = (int)result.get("score");
+			if(previous == score) {
+				rank-=1;
+				repeat+=1;
+			}
+			else {
+				rank+=repeat;
+				repeat = 0;
+			}
+			ranking.setPlace(rank);
 			ranking.setUserName((String)result.get("userName"));
-			ranking.setScore((int)result.get("score"));
+			ranking.setScore(score);
 			list.add(ranking);
-			i+=1;
+			previous = score;
+			rank+=1;
 		}
 		return list;
 	}

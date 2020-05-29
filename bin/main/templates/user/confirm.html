@@ -4,9 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${title}">Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:replace="~{block/header::headerA}"></div>
 <h1 class="text-white" th:text="${title}">仮のタイトル</h1>
 
 <div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 25rem;">
@@ -31,5 +33,6 @@
 	</div>
   </div>
 </div>
+<div th:replace="~{block/footer::footerA}"></div>
 </body>
 </html>

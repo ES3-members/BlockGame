@@ -12,4 +12,6 @@ public interface UserService {
 	boolean userExist(String userName);
 	
 	boolean certificate(String userName, String password);
+	
+	
 }
