@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
 	public void save(User user) {
 		dao.insertUser(user);
 	}
+	
+	@Override
+	public void delete(User user) {
+		dao.deleteUser(user);
+	}
 
 	@Override
 	public List<User> getAll() {

@@ -8,6 +8,8 @@ public interface UserDao {
 	
 	void insertUser(User user);
 	
+	void deleteUser(User user);
+	
 	List<User> getAll();
 	
 	boolean userExist(String userName);
