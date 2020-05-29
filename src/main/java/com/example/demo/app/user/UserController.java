@@ -73,7 +73,7 @@ public class UserController {
 		
 		//loginするアカウントが無い場合
 		model.addAttribute("title", "LogIn Page");
-		model.addAttribute("caution", "The account does not exist");
+		model.addAttribute("caution", "Wrong Information! Please Try Again!");
 		 return "user/logInForm";
 	}
 	
