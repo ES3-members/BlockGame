@@ -128,7 +128,7 @@ public class UserController {
 			BindingResult result, 
 			Model model) {
 		
-		// 入力された値が想定外の時
+		// 入力された値が想定外の時!
 		if(result.hasErrors()) {
 			model.addAttribute("title", "Create Account");
 			return "user/create";
