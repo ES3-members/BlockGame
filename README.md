@@ -3,7 +3,7 @@ WebアプリケーションフレームワークのSpringを利用して作成�
 アカウント登録・削除機能，ゲームスコアのランキング機能を実装している．
  
 # DEMO
-![demo](https://github.com/ES3-members/BlockGame.wiki.git)
+![BlockGame_Demo](https://user-images.githubusercontent.com/65770398/83329730-18b59880-a2c6-11ea-845b-09e582eca615.gif)
  
 # Requirement and Installation
 - OpenJDK
