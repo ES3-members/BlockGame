@@ -1,41 +1,36 @@
 # BlockGame
-ゲームの説明
+WebアプリケーションフレームワークのSpringを利用して作成したブロック崩しゲーム．
+アカウント登録・削除機能，ゲームスコアのランキング機能を実装している．
  
 # DEMO
 [![Image from Gyazo](https://i.gyazo.com/9486dc58906820e8343e768fd1546d87.gif)](https://gyazo.com/9486dc58906820e8343e768fd1546d87)
  
-# Features
- 
- 
 # Requirement and Installation
-- OpenJDK11 or 14
-  - [jdk.java.net](https://openjdk.java.net)からOpenJDK11または14をインストール
-- Spring Tools4(STS)
-  - [こちら](https://spring.io/tools)からOSに合わせたSTSをインストール
-  - Gradleのプラグインをインストール
+- OpenJDK
+  - [jdk.java.net](https://openjdk.java.net)からOSに合わせてインストールする.
+  - ver.11とver.14で動作確認済み.
+  - インストールしたJDKのbinフォルダのパスを環境変数に設定する.
+- Spring Tools Suite(STS)
+  - Springに特化した統合開発環境 .
+  - [Spring Tools4(STS)](https://spring.io/tools)からOSに合わせてインストールする.
+  - ダウンロードしたjarファイルが置いてあるディレクトリに移動し，`java -jar ファイル名`で展開する．展開後に作成されたフォルダ内のexeファイルを実行するとSTSが起動する.
+  
+- STSの設定（Eclipce版の場合）
+  - Help > Eclipce Marketplace WizardからビルドツールとしてGradleのプラグインをインストールする.
+  - Window > PreferenceタブのJava > Installes JREsでインストールしたJREを指定する.
 
 # Usage
-1. プロジェクトを実行（Run As Spring Boot App）
-2. ブラウザでlocalhost:8080/user/indexにアクセス
-3. create 
+1. 本プロジェクトをダウンロードし，File > Importとしてインポート．
+2. プロジェクトを実行（Run As Spring Boot App）.
+3. ブラウザからlocalhost:8080/user/indexにアクセス.
  
 # Note
- 
-注意点などがあれば書く
+インメモリデータベースであるH2データベースを使用してアカウント情報やゲームスコアの管理を行っているため，データベースはアプリ起動時に初期化される．
  
 # Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+* Naoto Yoshimura
+* Itsuki Hashimoto
+* Chihiro Tomita
+* Jun Matsue
+* Takuya Ohara
+* Ryusei Nagasawaで
