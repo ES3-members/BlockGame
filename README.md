@@ -33,4 +33,4 @@ WebアプリケーションフレームワークのSpringを利用して作成�
 * Chihiro Tomita
 * Jun Matsue
 * Takuya Ohara
-* Ryusei Nagasawaで
+* Ryusei Nagasawa
