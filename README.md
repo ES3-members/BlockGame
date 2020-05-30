@@ -31,6 +31,6 @@ WebアプリケーションフレームワークのSpringを利用して作成�
 * Itsuki Hashimoto
 * Naoto Yoshimura
 * Chihiro Tomita
-* Jun Matsue
+* Junpei Matsue
 * Takuya Ohara
 * Ryusei Nagasawa
