@@ -21,12 +21,10 @@
 	<form method="post" action="#" th:action="@{/user/deleteComplete}">
 		<input class="btn" type="submit" value="Yes">
 		<input type="hidden" name="userName" th:value="*{userName}">
-		<input type="hidden" name="password" th:value="*{password}">
 	</form>
 	<form method="post" action="#" th:action="@{/user/entranceFromInside}">
 		<input class="btn" type="submit" value="No">
 		<input type="hidden" name="userName" th:value="*{userName}">
-		<input type="hidden" name="password" th:value="*{password}">
 	</form>
 	</div>
   </div>
