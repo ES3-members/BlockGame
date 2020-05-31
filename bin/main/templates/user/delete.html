@@ -12,9 +12,10 @@
 <h1 class="text-white" th:text="${title}">仮のタイトル</h1>
 
 <div class="card text-black bg-secondary mb-3 d-inline-block" style="max-width: 25rem;">
-  <h1 class="card-header text-white">Confirmation</h1>
+  <h1 class="card-header text-white">Delete Confirmation</h1>
   <div class="card-body">
-	<p class="text-white">Are you sure you want to delete this account?</p>
+	<strong class="text-white">Are you sure you want to delete this account?</strong>
+	<p class="text-white">※Your score will remain in the rankings even if you delete your account.</p>
 	<div th:object="${userForm}">
 	<label class="text-white" for="userName">userName:</label>
 	<p class="text-white" th:text="*{userName}"></p>
