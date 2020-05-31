@@ -24,15 +24,21 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public void insertUser(User user) {
-		// passwordをハッシュ関数にかけてUserテーブルに登録
+		// password繧偵ワ繝�繧ｷ繝･髢｢謨ｰ縺ｫ縺九￠縺ｦUser繝�繝ｼ繝悶Ν縺ｫ逋ｻ骭ｲ
 		String password = user.getPassword();
 		jdbcTemplate.update("INSERT INTO user(userName, password) VALUES(?, ?)",
 				user.getUserName(), hashedPass(password));
 	}
+	
+	@Override
+	public void deleteUser(User user) {
+		jdbcTemplate.update("DELETE FROM user WHERE userName=?",
+				user.getUserName());
+	}
 
 	@Override
 	public List<User> getAll() {
-		// Userテーブルのデータをすべて取り出し
+		// User繝�繝ｼ繝悶Ν縺ｮ繝�繝ｼ繧ｿ繧偵☆縺ｹ縺ｦ蜿悶ｊ蜃ｺ縺�
 		String sql = "SELECT userName, password FROM user";
 		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
 		List<User> list = new ArrayList<User>();
@@ -47,8 +53,8 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public boolean userExist(String userName) {
-		// ユーザー名がUserテーブル（データベース）に存在するか確認
-		// 存在すればTrue，存在しなければFalseを返す
+		// 繝ｦ繝ｼ繧ｶ繝ｼ蜷阪′User繝�繝ｼ繝悶Ν�ｼ医ョ繝ｼ繧ｿ繝吶�ｼ繧ｹ�ｼ峨↓蟄伜惠縺吶ｋ縺狗｢ｺ隱�
+		// 蟄伜惠縺吶ｌ縺ｰTrue�ｼ悟ｭ伜惠縺励↑縺代ｌ縺ｰFalse繧定ｿ斐☆
 		String sql = "SELECT userName FROM user";
 		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
 		List<String> list = new ArrayList<String>();
@@ -61,7 +67,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean certificate(String userName, String password) {
-		// ログイン処理
+		// 繝ｭ繧ｰ繧､繝ｳ蜃ｦ逅�
 		String sql = "SELECT password FROM user WHERE userName = '" + userName + "'";
 		String pass;
 		try {
@@ -77,7 +83,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String hashedPass(String password) {
-		//　パスワードをハッシュ関数にかける
+		//縲�繝代せ繝ｯ繝ｼ繝峨ｒ繝上ャ繧ｷ繝･髢｢謨ｰ縺ｫ縺九￠繧�
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-1");

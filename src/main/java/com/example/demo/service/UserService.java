@@ -7,6 +7,8 @@ import com.example.demo.entity.User;
 public interface UserService {
 	void save(User user);
 	
+	void delete(User user);
+	
 	List<User> getAll();
 	
 	boolean userExist(String userName);
